@@ -12,12 +12,12 @@ public class Message {
   }
 
   public Message(String message) {
-    this.author="系统";
+    this.author = "System";
     this.message = message;
   }
 
   public Message(String receiver, String message) {
-    this.author="系统";
+    this.author = "System";
     this.receiver = receiver;
     this.message = message;
   }

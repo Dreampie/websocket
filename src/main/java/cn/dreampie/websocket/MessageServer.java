@@ -86,10 +86,23 @@ public class MessageServer {
     return sessions.contains(session) && sessions.remove(session);
   }
 
+  public static void send(String message) {
+    sendAll(new Message(message));
+  }
+
+  public static void send(String receiver, String message) {
+    send(new Message(receiver, message));
+  }
+
+  public static void send(String author, String receiver, String message) {
+    send(new Message(author, receiver, message));
+  }
+
   public static void send(Message message) {
     String receiver = message.getReceiver();
     if (receiver == null || receiver.isEmpty()) {
       logger.info("Send: {}", "not receiver");
+      sendAll(message);
       return;
     }
     try {
@@ -105,6 +118,10 @@ public class MessageServer {
     } catch (EncodeException e) {
       logger.error(e.toString());
     }
+  }
+
+  public static void sendAll(String message) {
+    sendAll(new Message(message));
   }
 
   public static void sendAll(Message message) {
