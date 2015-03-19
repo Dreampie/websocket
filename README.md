@@ -2,7 +2,7 @@ websocket
 ============
 websocket api，查看其他插件-> [Maven](http://search.maven.org/#search%7Cga%7C1%7Ccn.dreampie)
 
-maven 引用  ${websocket.version}替换为相应的版本如:0.1
+maven 引用  ${websocket.version}替换为相应的版本如:0.11
 
 ```xml
 <dependency>
